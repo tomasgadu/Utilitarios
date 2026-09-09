@@ -1,22 +1,18 @@
-package co.edu.uco.libreriauco.dto;
+package co.edu.uco.libreriauco.entidad;
 import java.util.UUID;
-import co.edu.uco.libreriauco.transversal.utilitarios.UtilObjeto;
 import co.edu.uco.libreriauco.transversal.utilitarios.UtilTexto;
 import co.edu.uco.libreriauco.transversal.utilitarios.UtilUUID;
 
-public class DepartamentoDTO {
+public class PaisEntidad {
 	
 	private UUID id;
 	private String nombre;
-	private PaisDTO pais;
 	
-	
-	public DepartamentoDTO() {
-		setId(UtilUUID.obtenerValorDefecto(id));
-		setNombre(UtilTexto.VACIO);
-		setPais(new PaisDTO());
+	public PaisEntidad() {
+	setId(UtilUUID.obtenerUUIDDefecto());
+	setNombre(UtilTexto.VACIO);
 	}
-	
+
 	public UUID getId() {
 		return id;
 	}
@@ -33,13 +29,6 @@ public class DepartamentoDTO {
 		this.nombre = UtilTexto.getUtilTexto().quitarEspacioEnBlanco(nombre);
 	}
 	
-	public PaisDTO getPais() {
-		return pais;
-	}
-	
-	public void setPais(PaisDTO pais) {
-		this.pais = UtilObjeto.obtenerValorDefectoSiValorOriginalEsNulo(pais, new PaisDTO());
-	}
 	
 	
 }

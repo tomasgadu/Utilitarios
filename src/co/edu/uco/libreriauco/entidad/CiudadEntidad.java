@@ -1,20 +1,20 @@
-package co.edu.uco.libreriauco.dto;
+package co.edu.uco.libreriauco.entidad;
 import java.util.UUID;
 import co.edu.uco.libreriauco.transversal.utilitarios.UtilObjeto;
 import co.edu.uco.libreriauco.transversal.utilitarios.UtilTexto;
 import co.edu.uco.libreriauco.transversal.utilitarios.UtilUUID;
 
-public class DepartamentoDTO {
+public class CiudadEntidad {
 	
 	private UUID id;
 	private String nombre;
-	private PaisDTO pais;
+	private DepartamentoEntidad departamento;
 	
 	
-	public DepartamentoDTO() {
+	public CiudadEntidad() {
 		setId(UtilUUID.obtenerValorDefecto(id));
 		setNombre(UtilTexto.VACIO);
-		setPais(new PaisDTO());
+		setDepartamento(new DepartamentoEntidad());
 	}
 	
 	public UUID getId() {
@@ -33,13 +33,11 @@ public class DepartamentoDTO {
 		this.nombre = UtilTexto.getUtilTexto().quitarEspacioEnBlanco(nombre);
 	}
 	
-	public PaisDTO getPais() {
-		return pais;
+	public DepartamentoEntidad getDepartamento() {
+		return departamento;
 	}
 	
-	public void setPais(PaisDTO pais) {
-		this.pais = UtilObjeto.obtenerValorDefectoSiValorOriginalEsNulo(pais, new PaisDTO());
+	public void setDepartamento(DepartamentoEntidad departamento) {
+		this.departamento = UtilObjeto.obtenerValorDefectoSiValorOriginalEsNulo(departamento, new DepartamentoEntidad());
 	}
-	
-	
 }

@@ -1,6 +1,7 @@
 package co.edu.uco.libreriauco.dto;
 import java.util.UUID;
 import co.edu.uco.libreriauco.transversal.utilitarios.UtilTexto;
+import co.edu.uco.libreriauco.transversal.utilitarios.UtilUUID;
 
 public class PaisDTO {
 	
@@ -8,7 +9,7 @@ public class PaisDTO {
 	private String nombre;
 	
 	public PaisDTO() {
-	setId(null);
+	setId(UtilUUID.obtenerUUIDDefecto());
 	setNombre(UtilTexto.VACIO);
 	}
 
@@ -17,7 +18,7 @@ public class PaisDTO {
 	}
 	
 	public void setId(UUID id) {
-		this.id = id;
+		this.id = UtilUUID.obtenerValorDefecto(id);
 	}
 	
 	public String getNombre() {
@@ -27,7 +28,4 @@ public class PaisDTO {
 	public void setNombre(String nombre) {
 		this.nombre = UtilTexto.getUtilTexto().quitarEspacioEnBlanco(nombre);
 	}
-	
-	
-	
 }

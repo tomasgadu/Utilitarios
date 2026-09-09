@@ -4,17 +4,17 @@ import co.edu.uco.libreriauco.transversal.utilitarios.UtilObjeto;
 import co.edu.uco.libreriauco.transversal.utilitarios.UtilTexto;
 import co.edu.uco.libreriauco.transversal.utilitarios.UtilUUID;
 
-public class DepartamentoDominio {
+public class CiudadDominio {
 	
 	private UUID id;
 	private String nombre;
-	private PaisDominio pais;
+	private DepartamentoDominio departamento;
 	
 	
-	private DepartamentoDominio(Builder builder) {
+	private CiudadDominio(Builder builder) {
 		this.id = builder.id;
 		this.nombre = builder.nombre;
-		this.pais = builder.pais;
+		this.departamento = builder.departamento;
 	}
 	
 
@@ -26,20 +26,20 @@ public class DepartamentoDominio {
 		return nombre;
 	}
 	
-	public PaisDominio getPais() {
-		return pais;
+	public DepartamentoDominio getDepartamento() {
+		return departamento;
 	}
 
 
 	public static class Builder {
 		private UUID id;
 		private String nombre;
-		private PaisDominio pais;
+		private DepartamentoDominio departamento;
 		
 		public Builder() {
 			id = UtilUUID.obtenerUUIDDefecto();
 			nombre = UtilTexto.VACIO;
-			pais = new PaisDominio.Builder().build();
+			departamento = new DepartamentoDominio.Builder().build();
 		}
 		
 		public Builder id(UUID id) {
@@ -52,13 +52,13 @@ public class DepartamentoDominio {
 			return this;
 		}
 		
-		public Builder pais(PaisDominio pais) {
-			this.pais = UtilObjeto.obtenerValorDefectoSiValorOriginalEsNulo(pais, new PaisDominio.Builder().build());
+		public Builder departamento(DepartamentoDominio departamento) {
+			this.departamento = UtilObjeto.obtenerValorDefectoSiValorOriginalEsNulo(departamento, new DepartamentoDominio.Builder().build());
 			return this;
 		}
 		
-		public DepartamentoDominio build() {
-			return new DepartamentoDominio(this);
+		public CiudadDominio build() {
+			return new CiudadDominio(this);
 		}
 	}
 }
